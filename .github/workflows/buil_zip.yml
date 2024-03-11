@@ -1,0 +1,28 @@
+name: Create ZIP and Instructions
+
+on:
+  push:
+    branches:
+      - main  # Ändere dies entsprechend dem Namen deines Hauptbranches
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      
+    - name: Create ZIP Archive
+      run: zip -r my_repo.zip .
+      
+    - name: Create Instructions File
+      run: echo "Move the .zip to your HOME directory, unzip it with unzip *.zip, and navigate into the folder inside." > instruction.txt
+      
+    - name: Upload ZIP and Instructions
+      uses: actions/upload-artifact@v2
+      with:
+        name: my_repo
+        path: |
+          my_repo.zip
+          instruction.txt
