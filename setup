@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "setup start"
+echo 'alias py="python"' >> $HOME/.bashrc
+clear
+echo "..."
+echo 'alias easy-shell="py $HOME/easy-shell/main.py"' >> $HOME/.bashrc
+clear
+echo "..."
+clear
+echo "..."
+clear
+echo "Setup Finish"
